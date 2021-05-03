@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import Movie from "./components/Movie";
+import Search from "./components/Search";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const MOVIE_API_URL = "https://www.omdbapi.com/?s=man&apikey=fddf39f1"; // you should replace this with yours
+
+
+// want Header, then Search, below Search we want section for nominations and then search results
+const App = () => {
+  return (<div>
+    <Header/>
+    <Search />
+
+    <Movie />
+  </div>);
+};
 
 export default App;
