@@ -1,3 +1,9 @@
+export { getMovies } from "./movies";
+
 export {
-  getMovies,
-} from './movies';
+  addNomination,
+  removeNomination,
+  completedNominations,
+  clearNominations,
+  saveNominations,
+} from "./nominations";

@@ -20,20 +20,20 @@ export const addNomination = (movieTitle, movieYear) => {
   };
 };
 
-export const addNominationStarted = () => {
+const addNominationStarted = () => {
   return {
     type: actionTypes.ADD_NOMINATION_STARTED,
   };
 };
 
-export const addNominationSuccess = (movie) => {
+const addNominationSuccess = (movie) => {
   return {
     type: actionTypes.ADD_NOMINATION_SUCCESS,
     movie: movie,
   };
 };
 
-export const addNominationFailure = (error) => {
+const addNominationFailure = (error) => {
   return {
     type: actionTypes.ADD_NOMINATION_FAILURE,
     error: error,
