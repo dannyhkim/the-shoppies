@@ -9,7 +9,9 @@ const SearchResult = (props) => {
           {props.year} • {props.type}
         </h3>
       </div>
-      <button>{!props.disabled ? "Nominate" : "Nominated"}</button>
+      <button disabled={props.disable} onClick={props.handleClick}>
+        {!props.disabled ? "Nominate" : "Nominated"}
+      </button>
     </Fragment>
   );
 };

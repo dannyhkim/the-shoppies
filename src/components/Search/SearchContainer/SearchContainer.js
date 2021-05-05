@@ -38,6 +38,11 @@ const SearchContainer = (props) => {
     setSearchTerm(event.target.value);
   };
 
+  // Handles nominations of movies
+  const handleNomination = (title, year) => {
+    dispatch(actions.addNomination(title, year));
+  }
+
   // Handles movie results from API when search terms change
   useEffect(() => {
     if (!searchTerm) {
@@ -57,12 +62,18 @@ const SearchContainer = (props) => {
     movieResults =
       movies &&
       movies.map((movie) => {
+
+        // check if movie has already been nominated
+        const isNominated = nominationList.find(nomination => nomination.Title === movie.Title);
+
         return (
           <SearchResult
             key={movie.imdbID}
             title={movie.Title}
             year={movie.Year}
             type={movie.Type}
+            disable={isNominated}
+            handleClick={() => handleNomination(movie.Title, movie.Year)}
           />
         );
       });
