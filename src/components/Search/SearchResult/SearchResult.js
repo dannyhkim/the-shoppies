@@ -1,12 +1,16 @@
-import { Divider } from '@material-ui/core';
-import React from 'react';
+import React, { Fragment } from "react";
 
-const SearchResult = () => {
+const SearchResult = (props) => {
   return (
-    <div>
-
-    </div>
+    <Fragment>
+      <div>
+        <h2>{props.title}</h2>
+        <h3>
+          {props.year} • {props.type}
+        </h3>
+      </div>
+      <button>{!props.disabled ? "Nominate" : "Nominated"}</button>
+    </Fragment>
   );
-
-}
+};
 export default SearchResult;

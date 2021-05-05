@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useDebounce from "../../../customHooks/useDebounce";
 import * as actions from "../../../store/actions/index";
 import SearchInput from "../SearchInput/SearchInput";
+import SearchResult from '../SearchResult/SearchResult';
 
 const SearchContainer = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -27,16 +28,6 @@ const SearchContainer = (props) => {
   // Custom hook to retrieve search term inputted after 400ms of no typing
   const debouncedSearchTerm = useDebounce(searchTerm, 400);
 
-  // Handles movie results from API when search terms change
-  useEffect(() => {
-    if (!searchTerm) {
-      return;
-    }
-    if (debouncedSearchTerm && searchTerm) {
-      dispatch(actions.getMovies(searchTerm));
-    }
-  }, [debouncedSearchTerm, dispatch, searchTerm]);
-
   // Handles search input
   const handleSearch = (event) => {
     // if search input is empty, clear results
@@ -47,34 +38,34 @@ const SearchContainer = (props) => {
     setSearchTerm(event.target.value);
   };
 
-  let movieResults =
-  movies &&
-  movies.map((movie) => {
-    return (
-      <div key={movie.imdbID}>
-        <span>{movie.Title}</span>
-        <span>{movie.Year}</span>
-        <span>{movie.Type}</span>
-      </div>
-    )
-  });
-
-  if (movieSearchLoading) {
-    if (movieSearchLoading || nominationLoading) {
-      movieResults = null; // want a loading animation
-    } else {
-      movieResults =
-        movies &&
-        movies.map((movie) => {
-          return (
-            <div key={movie.imdbID}>
-              <span>{movie.Title}</span>
-              <span>{movie.Year}</span>
-              <span>{movie.Type}</span>
-            </div>
-          )
-        });
+  // Handles movie results from API when search terms change
+  useEffect(() => {
+    if (!searchTerm) {
+      return;
     }
+    if (debouncedSearchTerm && searchTerm) {
+      dispatch(actions.getMovies(searchTerm));
+    }
+  }, [debouncedSearchTerm, dispatch, searchTerm]);
+
+  // Movies from search input
+  let movieResults = null;
+
+  if (movieSearchLoading || nominationLoading) {
+    movieResults = null; // want a loading animation
+  } else {
+    movieResults =
+      movies &&
+      movies.map((movie) => {
+        return (
+          <SearchResult
+            key={movie.imdbID}
+            title={movie.Title}
+            year={movie.Year}
+            type={movie.Type}
+          />
+        );
+      });
   }
 
   return (
