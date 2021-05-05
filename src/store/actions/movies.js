@@ -7,7 +7,7 @@ export const getMovies = (searchInput) => {
     dispatch(getMoviesStarted());
 
     // OMDB Movie API URL
-    const OMDB_API_URL = `https://www.omdbapi.com/?s=${searchInput}&apikey=fddf39f1`;
+    const OMDB_API_URL = `https://www.omdbapi.com/?s=${searchInput}&type=movie&apikey=fddf39f1`;
 
     axios
       .get(OMDB_API_URL)
@@ -33,7 +33,7 @@ const getMoviesStarted = () => {
   };
 };
 
-const getMoviesSuccess = (movies) => {
+const getMoviesSuccess = (movies, options) => {
   return {
     type: actionTypes.GET_MOVIES_SUCCESS,
     movies: movies,
@@ -44,5 +44,11 @@ const getMoviesFailure = (error) => {
   return {
     type: actionTypes.GET_MOVIES_FAILURE,
     error: error,
+  };
+};
+
+export const clearMovies = () => {
+  return {
+    type: actionTypes.CLEAR_MOVIES,
   };
 };

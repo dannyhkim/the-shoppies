@@ -1,4 +1,7 @@
-export { getMovies } from "./movies";
+export {
+  getMovies,
+  clearMovies
+ } from "./movies";
 
 export {
   addNomination,

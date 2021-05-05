@@ -6,19 +6,22 @@ import reportWebVitals from "./reportWebVitals";
 
 // Redux
 import { Provider } from "react-redux";
-import { createStore, combineReducers, applyMiddleware } from "redux";
+import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 
 // Reducers
 import moviesReducer from "./store/reducers/movies";
 import nominationsReducer from "./store/reducers/nominations";
 
+const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
+
+
 const rootReducer = combineReducers({
   movies: moviesReducer,
   nominations: nominationsReducer,
 });
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)));
 
 ReactDOM.render(
   <Provider store={store}>
