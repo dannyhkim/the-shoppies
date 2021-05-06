@@ -44,6 +44,7 @@ const NominationsContainer = () => {
             <Nomination
               img={nomination.Poster}
               title={nomination.Title}
+              year={nomination.Year}
               genres={nomination.Genre}
               remove={() => removeHandler(nomination.Title)}
             />

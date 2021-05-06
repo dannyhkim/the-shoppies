@@ -7,6 +7,7 @@ const SearchInput = (props) => {
         type="text"
         onChange={e => props.handleSearch(e)}
         value={props.searchVal}
+        disabled={props.disable}
         >
       </input>
     </div>

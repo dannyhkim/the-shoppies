@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useDebounce from "../../../customHooks/useDebounce";
 import * as actions from "../../../store/actions/index";
 import SearchInput from "../SearchInput/SearchInput";
-import SearchResult from '../SearchResult/SearchResult';
+import SearchResult from "../SearchResult/SearchResult";
 
 const SearchContainer = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -41,7 +41,7 @@ const SearchContainer = (props) => {
   // Handles nominations of movies
   const handleNomination = (title, year) => {
     dispatch(actions.addNomination(title, year));
-  }
+  };
 
   // Handles movie results from API when search terms change
   useEffect(() => {
@@ -62,9 +62,10 @@ const SearchContainer = (props) => {
     movieResults =
       movies &&
       movies.map((movie) => {
-
         // check if movie has already been nominated
-        const isNominated = nominationList.find(nomination => nomination.Title === movie.Title);
+        const isNominated = nominationList.find(
+          (nomination) => nomination.Title === movie.Title
+        );
 
         return (
           <SearchResult
@@ -81,7 +82,11 @@ const SearchContainer = (props) => {
 
   return (
     <React.Fragment>
-      <SearchInput handleSearch={handleSearch} searchVal={searchTerm} />
+      <SearchInput
+        handleSearch={handleSearch}
+        searchVal={searchTerm}
+        disable={completedNominations}
+      />
       {movieResults}
     </React.Fragment>
   );
