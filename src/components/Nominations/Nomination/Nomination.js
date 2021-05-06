@@ -16,7 +16,7 @@ const Nomination = (props) => {
         <h4>{props.year}</h4>
       </div>
 
-      <button onClick={props.removeHandler}>Remove</button>
+      <button onClick={props.remove}>Remove</button>
     </div>
   )
 }

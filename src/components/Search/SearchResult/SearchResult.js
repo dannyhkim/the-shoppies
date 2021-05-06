@@ -10,7 +10,7 @@ const SearchResult = (props) => {
         </h3>
       </div>
       <button disabled={props.disable} onClick={props.handleClick}>
-        {!props.disabled ? "Nominate" : "Nominated"}
+        {!props.disable ? "Nominate" : "Nominated"}
       </button>
     </Fragment>
   );
