@@ -1,13 +1,15 @@
 import React from 'react'
+import classes from './Nomination.module.css';
 import imagePlaceholder from './movie-placeholder.jpg';
 
 const Nomination = (props) => {
   const image = props.img === "N/A" ? imagePlaceholder: props.img;
 
   return (
-    <div>
+    <div className={classes.nomination_container}>
 
       <img
+        className={classes.nomination_image}
         src={image}
         alt={`${props.title} movie poster`}
       />

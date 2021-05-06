@@ -1,0 +1,11 @@
+.nomination_image {
+  background-color: #002e25;
+  color: #008060;
+  width: 100px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  align-self: center;
+}
+
+.nomination_container {
+  margin-bottom: 20px;
+}
