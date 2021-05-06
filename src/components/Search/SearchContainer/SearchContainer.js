@@ -51,7 +51,7 @@ const SearchContainer = (props) => {
     if (debouncedSearchTerm && searchTerm) {
       dispatch(actions.getMovies(searchTerm));
     }
-  }, [debouncedSearchTerm, dispatch, searchTerm]);
+  }, [debouncedSearchTerm, searchTerm, dispatch]);
 
   // Movies from search input
   let movieResults = null;

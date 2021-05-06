@@ -1,7 +1,5 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+import { MDBContainer, MDBRow, MDBCol } from "mdb-react-ui-kit";
 import "./App.css";
 import Header from "./components/Header/Header";
 import NominationsContainer from "./components/Nominations/NominationsContainer/NominationsContainer";
@@ -12,16 +10,16 @@ const App = () => {
   return (
     <div>
       <Header header="The Shoppies" />
-      <Container>
-        <Row>
-          <Col md={6}>
+      <MDBContainer>
+        <MDBRow>
+          <MDBCol md="5">
             <NominationsContainer />
-          </Col>
-          <Col md={6}>
+          </MDBCol>
+          <MDBCol md="7">
             <SearchContainer />
-          </Col>
-        </Row>
-      </Container>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
     </div>
   );
 };

@@ -5,8 +5,8 @@ const Header = (props) => {
   return (
     <div>
       <header className={classes.header}>
-        <h1>{props.header}</h1>
-        <p>Movie awards for entrepreneurs - nominate your 5 favourite movies</p>
+        <h1 className={classes.header_title}>{props.header}</h1>
+        <p className={classes.message}>Movie awards for entrepreneurs - nominate your 5 favourite movies</p>
       </header>
     </div>
   );
