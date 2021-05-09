@@ -4,6 +4,8 @@ import useDebounce from "../../../customHooks/useDebounce";
 import * as actions from "../../../store/actions/index";
 import SearchInput from "../SearchInput/SearchInput";
 import SearchResult from "../SearchResult/SearchResult";
+import { MDBSpinner } from "mdb-react-ui-kit";
+import classes from "./SearchContainer.module.css";
 
 const SearchContainer = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -40,6 +42,11 @@ const SearchContainer = (props) => {
 
   // Handles nominations of movies
   const handleNomination = (title, year) => {
+    // Make sure user can't add more movies to nominations after 5
+    if (nominationList.length === 4) {
+      dispatch(actions.clearMovies());
+      setSearchTerm("");
+    }
     dispatch(actions.addNomination(title, year));
   };
 
@@ -48,16 +55,20 @@ const SearchContainer = (props) => {
     if (!searchTerm) {
       return;
     }
-    if (debouncedSearchTerm && searchTerm) {
+    if (debouncedSearchTerm) {
       dispatch(actions.getMovies(searchTerm));
     }
-  }, [debouncedSearchTerm, searchTerm, dispatch]);
+  }, [debouncedSearchTerm]); // only want to run the hook whenever the debounced search term changes
 
   // Movies from search input
   let movieResults = null;
 
   if (movieSearchLoading || nominationLoading) {
-    movieResults = null; // want a loading animation
+    movieResults = (
+      <MDBSpinner role="status" color="success">
+        <span className="visually-hidden">Loading...</span>
+      </MDBSpinner>
+    ); // want a loading animation
   } else {
     movieResults =
       movies &&
@@ -70,6 +81,7 @@ const SearchContainer = (props) => {
         return (
           <SearchResult
             key={movie.imdbID}
+            img={movie.Poster}
             title={movie.Title}
             year={movie.Year}
             type={movie.Type}
@@ -88,6 +100,12 @@ const SearchContainer = (props) => {
         disable={completedNominations}
       />
       {movieResults}
+      {movieSearchError ? (
+        <div className={classes.error}>
+          <p>{movieSearchError}</p>
+          <p>Change your search terms.</p>
+        </div>
+      ) : null}
     </React.Fragment>
   );
 };

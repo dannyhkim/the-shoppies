@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../../store/actions/index";
 import Nomination from "../Nomination/Nomination";
+import NominationCounter from "../NominationCounter/NominationCounter";
 
 const NominationsContainer = () => {
   const nominationList = useSelector(
@@ -38,16 +39,17 @@ const NominationsContainer = () => {
 
   return (
     <div>
+      <NominationCounter length={nominationList.length} />
       {nominationList &&
         nominationList.map((nomination) => {
           return (
-            <Nomination
-              img={nomination.Poster}
-              title={nomination.Title}
-              year={nomination.Year}
-              genres={nomination.Genre}
-              remove={() => removeHandler(nomination.Title)}
-            />
+              <Nomination
+                img={nomination.Poster}
+                title={nomination.Title}
+                year={nomination.Year}
+                genres={nomination.Genre}
+                remove={() => removeHandler(nomination.Title)}
+              />
           );
         })}
     </div>

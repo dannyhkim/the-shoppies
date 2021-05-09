@@ -10,7 +10,7 @@ import {
   MDBRow,
   MDBCol,
   MDBBtn,
-  MDBIcon,
+  MDBRipple,
 } from "mdb-react-ui-kit";
 
 const Nomination = (props) => {
@@ -18,11 +18,12 @@ const Nomination = (props) => {
 
   return (
     <div className={classes.nomination_container}>
-      <MDBCard style={{ maxWidth: "540px" }}>
+      <MDBCard style={{ maxWidth: "400px" }}>
         <MDBRow className="g-0">
           <MDBCol md="4">
             <MDBCardImage
               src={image}
+              className="img-thumbnail"
               alt={`${props.title} movie poster`}
               fluid
             />
@@ -31,9 +32,14 @@ const Nomination = (props) => {
             <MDBCardBody>
               <MDBCardTitle>{props.title}</MDBCardTitle>
               <MDBCardText>{props.year}</MDBCardText>
-              <MDBBtn color="primary" onClick={props.remove}>
-                <MDBIcon icon="minus-circle" className="mr-1" /> Remove
-              </MDBBtn>
+              <MDBRipple
+                rippleColor="light"
+                size="md"
+                style={{ backgroundColor: "#008060" }}
+                onClick={props.remove}
+              >
+                Remove
+              </MDBRipple>
             </MDBCardBody>
           </MDBCol>
         </MDBRow>
