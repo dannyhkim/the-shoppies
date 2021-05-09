@@ -9,8 +9,8 @@ import SearchContainer from "./components/Search/SearchContainer/SearchContainer
 const App = () => {
   return (
     <div>
-      <Header header="The Shoppies" />
       <MDBContainer>
+        <Header header="The Shoppies" />
         <MDBRow>
           <MDBCol md="5">
             <NominationsContainer />

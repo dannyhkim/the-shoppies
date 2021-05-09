@@ -12,6 +12,20 @@
   padding-bottom: 15px;
 }
 
+.header_container {
+  margin-top: 20px;
+}
+
+.header_banner {
+  font-size: 20px;
+  font-family: 'HK Grotesk';
+  font-weight: 700;
+}
+
 .message {
   font-size: 25px;
+}
+
+.message_main {
+  font-weight: 600;
 }

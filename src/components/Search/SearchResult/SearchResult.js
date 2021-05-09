@@ -3,6 +3,7 @@ import imagePlaceholder from "./movie-placeholder.jpg";
 import classes from "./SearchResult.module.css";
 import {
   MDBCard,
+  MDBCardHeader,
   MDBCardTitle,
   MDBCardText,
   MDBCardBody,
@@ -17,32 +18,20 @@ const SearchResult = (props) => {
 
   return (
     <div className={classes.container}>
-      <MDBCard>
-        <MDBRow className="g-0">
-          <MDBCol lg="3">
-            <MDBCardImage
-              style={{ maxWidth: "100px" }}
-              src={image}
-              alt={`${props.title} movie poster`}
-              fluid
-            />
-          </MDBCol>
-          <MDBCol lg="9">
-            <MDBCardBody>
-              <MDBCardTitle>{props.title}</MDBCardTitle>
-              <MDBCardText>
-                {props.year} • {props.type}
-              </MDBCardText>
-              <MDBBtn
-                style={{ backgroundColor: '#008060' }}
-                disabled={props.disable}
-                onClick={props.handleClick}
-              >
-                {!props.disable ? "Nominate" : "Nominated"}
-              </MDBBtn>
-            </MDBCardBody>
-          </MDBCol>
-        </MDBRow>
+      <MDBCard background="light" className="mb-3">
+        <MDBCardHeader>{props.title}</MDBCardHeader>
+        <MDBCardBody>
+          <MDBCardTitle>
+            {props.year} • {props.type}
+          </MDBCardTitle>
+          <MDBBtn
+            style={{ backgroundColor: "#008060" }}
+            disabled={props.disable}
+            onClick={props.handleClick}
+          >
+            {!props.disable ? "Nominate" : "Nominated"}
+          </MDBBtn>
+        </MDBCardBody>
       </MDBCard>
     </div>
   );

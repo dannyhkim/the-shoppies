@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../../../store/actions/index";
 import Nomination from "../Nomination/Nomination";
 import NominationCounter from "../NominationCounter/NominationCounter";
+import { MDBContainer } from 'mdb-react-ui-kit';
 
 const NominationsContainer = () => {
   const nominationList = useSelector(
@@ -38,7 +39,7 @@ const NominationsContainer = () => {
   }, [nominationList]);
 
   return (
-    <div>
+    <MDBContainer style={{backgroundColor: "#004C3F", paddingBottom: "20px", marginBottom: "30px"}}>
       <NominationCounter length={nominationList.length} />
       {nominationList &&
         nominationList.map((nomination) => {
@@ -52,7 +53,7 @@ const NominationsContainer = () => {
               />
           );
         })}
-    </div>
+    </MDBContainer>
   );
 };
 

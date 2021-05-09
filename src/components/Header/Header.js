@@ -1,17 +1,18 @@
 import React, { Fragment } from "react";
 import classes from "./Header.module.css";
-import logo from './shopify-logo.png';
+import logo from './shopify-logo.svg';
 
 const Header = (props) => {
   return (
-    <Fragment>
+    <div className={classes.header_container}>
+      <img src={logo} alt="Shopify logo"/> <span className={classes.header_banner}>The Shoppies</span>
       <header className={classes.header}>
         <h1 className={classes.header_title}>{props.header}</h1>
         <p className={classes.message}>
-          Movie awards for entrepreneurs - nominate your 5 favourite movies
+          <span className={classes.message_main}>Movie awards for entrepreneurs</span> - nominate your 5 favourite movies
         </p>
       </header>
-    </Fragment>
+    </div>
   );
 };
 

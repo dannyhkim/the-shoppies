@@ -10,6 +10,6 @@
   margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
-
+.genres {
+  font-style: italic;
 }

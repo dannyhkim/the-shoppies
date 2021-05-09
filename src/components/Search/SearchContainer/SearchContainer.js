@@ -4,8 +4,8 @@ import useDebounce from "../../../customHooks/useDebounce";
 import * as actions from "../../../store/actions/index";
 import SearchInput from "../SearchInput/SearchInput";
 import SearchResult from "../SearchResult/SearchResult";
+import SearchError from "../SearchError/SearchError";
 import { MDBSpinner } from "mdb-react-ui-kit";
-import classes from "./SearchContainer.module.css";
 
 const SearchContainer = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -100,12 +100,7 @@ const SearchContainer = (props) => {
         disable={completedNominations}
       />
       {movieResults}
-      {movieSearchError ? (
-        <div className={classes.error}>
-          <p>{movieSearchError}</p>
-          <p>Change your search terms.</p>
-        </div>
-      ) : null}
+      {movieSearchError ? <SearchError error={movieSearchError} /> : null}
     </React.Fragment>
   );
 };

@@ -1,0 +1,8 @@
+.counter {
+  padding-top: 15px;
+  font-size: 26px;
+  color: white;
+}
+.counter span {
+  font-weight: bold;
+}
