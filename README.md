@@ -2,7 +2,7 @@
 Managing movie nominations for The Shoppies: Movie awards for entrepreneurs. 
 
 
-[Deployed Version](https://the-shoppies-movie-nominations.herokuapp.com/)
+[🔗  Deployed Version](https://the-shoppies-movie-nominations.herokuapp.com/)
 
 ## The Challenge 
 We need a webpage that can search OMDB for movies, and allow the user to save their favourite films they feel should be up for nomination. When they've selected 5 nominees they should be notified they're finished.
