@@ -32,4 +32,5 @@ For my Shoppies movie nomination website, I decided to include extra features in
 - CSS
 - Sketch 
 
-I used React in order to develop the various UI components to be displayed to the user based on different states. In hand with React, I used Redux and developed action creators, reducers, and action types to better manage the app's movie and nomination states. To develop a rough design of the platform, I used Sketch to brainstorm component placement, design, and styling. 
+## Process
+To develop a rough design of the platform, I used Sketch to brainstorm component placement, design, fonts, and styling. I used React in order to develop the various UI components to be displayed to the user based on different states. In hand with React, I used Redux and developed action creators, reducers, and action types to better manage the app's movie and nomination states. For the implementation of the design I used CSS and a CSS framework called MDBootstrap for React to leverage layout responsiveness and components. For animations of the loading, adding, and deleting, I used MDBootstrap and React Transition Group. For nomination list storage persistence when the user leaves the page, I used `localStorage` to store an array of the nominations in the browser.
