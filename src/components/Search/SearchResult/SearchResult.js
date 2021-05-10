@@ -1,20 +1,14 @@
 import React from "react";
-import imagePlaceholder from "./movie-placeholder.jpg";
 import classes from "./SearchResult.module.css";
 import {
   MDBCard,
   MDBCardHeader,
   MDBCardTitle,
-  MDBCardText,
   MDBCardBody,
-  MDBCardImage,
-  MDBRow,
-  MDBCol,
   MDBBtn,
 } from "mdb-react-ui-kit";
 
 const SearchResult = (props) => {
-  const image = props.img === "N/A" ? imagePlaceholder : props.img;
 
   return (
     <div className={classes.container}>

@@ -84,7 +84,7 @@ const SearchContainer = (props) => {
             img={movie.Poster}
             title={movie.Title}
             year={movie.Year}
-            type={movie.Type}
+            type={movie.Type.charAt(0).toUpperCase() + movie.Type.slice(1)}
             disable={isNominated}
             handleClick={() => handleNomination(movie.Title, movie.Year)}
           />

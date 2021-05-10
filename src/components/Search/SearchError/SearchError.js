@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import classes from "./SearchError.module.css";
 import {MDBCard, MDBCardHeader, MDBCardBody, MDBCardTitle} from 'mdb-react-ui-kit';
 
 const SearchError = (props) => {
