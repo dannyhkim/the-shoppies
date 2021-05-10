@@ -1,6 +1,6 @@
+![The Shoppies](https://user-images.githubusercontent.com/43249425/117595064-aff9b180-b10d-11eb-83eb-ecdce42e1c12.png)
 # The Shoppies
 Managing movie nominations for The Shoppies: Movie awards for entrepreneurs. 
-![The Shoppies](https://user-images.githubusercontent.com/43249425/117595064-aff9b180-b10d-11eb-83eb-ecdce42e1c12.png)
 
 [Deployed Version](https://the-shoppies-movie-nominations.herokuapp.com/)
 
