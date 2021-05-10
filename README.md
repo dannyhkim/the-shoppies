@@ -20,4 +20,16 @@ We need a webpage that can search OMDB for movies, and allow the user to save th
 For my Shoppies movie nomination website, I decided to include extra features including:
 1. Saving the nomination list in the case that the user leaves the page with `localStorage` for persistent storage 
 2. Creating a polished design with CSS and [MDBootstrap for React](https://mdbootstrap.com/docs/b5/react/)
-3. Adding animations for loading, adding/deleting movies and nominations with [React Transition Group](https://reactcommunity.org/react-transition-group/). 
+3. Adding animations for loading, adding/deleting movies and nominations with [React Transition Group](https://reactcommunity.org/react-transition-group/)
+
+## Technologies Used
+- React.js
+- Redux
+- OMDB API
+- MDBootstrap 
+- React Transition Group 
+- Heroku 
+- CSS
+- Sketch 
+
+I used React in order to develop the various UI components to be displayed to the user based on different states. In hand with React, I used Redux and developed action creators, reducers, and action types to better manage the app's movie and nomination states. To develop a rough design of the platform, I used Sketch to brainstorm component placement, design, and styling. 
